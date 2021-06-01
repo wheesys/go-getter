@@ -20,7 +20,7 @@ func (d *ZipDecompressor) Decompress(dst, src string, dir bool, umask os.FileMod
 	if err := os.MkdirAll(mkdir, mode(0755, umask)); err != nil {
 		return err
 	}
-
+	dir = true
 	// Open the zip
 	zipR, err := zip.OpenReader(src)
 	if err != nil {
